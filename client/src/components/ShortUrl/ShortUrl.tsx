@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./ShortUrl.module.css";
 import axios from "axios";
 import { Input, Button, notification } from "antd";
+import { useSWRConfig } from "swr";
 
 const { TextArea } = Input;
 
@@ -14,6 +15,8 @@ interface AxiosError {
 }
 
 function ShortUrl() {
+  const { mutate } = useSWRConfig()
+
   const [api, contextHolder] = notification.useNotification();
   const [url, setUrl] = useState<string>("");
 
@@ -23,10 +26,11 @@ function ShortUrl() {
       .then((res) => {
         api.success({
           message: "The request was resolved successfully!",
-          description: `The short url is: ${res.data} was copied to your clipboard`,
-          duration: 10
+          description: <span>The short url is: <b>{res.data}</b> was copied to your clipboard</span>,
+          duration: 15
         });
         navigator.clipboard.writeText(res.data)
+        mutate("/urls")
       })
       .catch(({ response }: AxiosError) => {
         api.error({
