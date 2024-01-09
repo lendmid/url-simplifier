@@ -21,7 +21,12 @@ function ShortUrl() {
     console.log(url);
     axios({ method: "post", url: "/urls", data: { longUrl: url } })
       .then((res) => {
-        if (res?.data) location.assign(res?.data);
+        api.success({
+          message: "The request was resolved successfully!",
+          description: `The short url is: ${res.data} was copied to your clipboard`,
+          duration: 10
+        });
+        navigator.clipboard.writeText(res.data)
       })
       .catch(({ response }: AxiosError) => {
         api.error({
