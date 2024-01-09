@@ -5,7 +5,7 @@ To start the project it needs
 2) Run the command: `docker compose up -d --build`
 
 ##### The result:
-[![N|Solid](https://i.ibb.co/3cktRV6/Screenshot-2024-01-09-at-3-49-20.png)](https://nodesource.com/products/nsolid)
+![result screenshot](https://i.ibb.co/3cktRV6/Screenshot-2024-01-09-at-3-49-20.png)
 
 ##### The implementation issues:
 1) It my first project from scratch with nest.js. It took time to figure out with nest.js general approach to architecture, modules, imports decorators and resolve TypeScript issues on the way
