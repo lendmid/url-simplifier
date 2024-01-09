@@ -10,8 +10,8 @@ To start the project it needs
 ##### The implementation issues:
 1) It my first project from scratch with nest.js. It took time to figure out with nest.js general approach to architecture, modules, imports decorators and resolve TypeScript issues on the way
 2) Configuration nest.js with client app inside docker-compose 
-3) env variables locally and inside docker-compose 
+3) env variables locally and in docker-compose environment
 
 ##### Tech stask 
-- **Backend:** nest.js, typeorm, redis, typescript
+- **Backend:** nest.js, typeorm, typescript
 - **Frontend:** react, typescript, antd
