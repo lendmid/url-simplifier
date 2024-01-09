@@ -1,0 +1,33 @@
+services:
+  redis:
+    image: 'redis/redis-stack'
+    ports:
+      - '6379:6379'
+      - '8001:8001'
+    networks:
+      - simplifiernet
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      BASE_URL: "http://localhost:3001"
+    ports:
+      - '3001:3001'
+    depends_on:
+      - redis
+    networks:
+      - simplifiernet
+  client: 
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '8000:80'
+    depends_on:
+      - server
+
+networks:
+  simplifiernet:
