@@ -1,4 +1,4 @@
-# Url Simplifier
+# Url Simplifier client
 
 Description: `Paste your link, it will be storted!`
 

@@ -1,4 +1,4 @@
-# Url Simplifier
+# Url Simplifier API
 
 Description: `Paste your link, it will be storted!`
 
